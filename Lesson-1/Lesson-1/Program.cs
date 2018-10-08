@@ -35,6 +35,15 @@ namespace HomeworkLesson1
         {
             return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
         }
+
+        // Метод для задачи 4
+        static void SwapVar<T>(ref T X, ref T Y)
+        {
+            T Z = X;
+            X = Y;
+            Y = Z;
+        }
+
         // Метод для задачи 6
         static void Pause(string message = "\n\nНажмите любую клавишу для продолжения")
         {
@@ -127,19 +136,18 @@ namespace HomeworkLesson1
             // 4. Обмен значениями между двумя переменными
             Console.WriteLine("Задание 4. Обмен значениями между переменными");
             Console.WriteLine("Введите значение переменной X");
-            double intX = Convert.ToDouble(Console.ReadLine());
+            var intX = Console.ReadLine();
             Console.WriteLine("Введите значение переменной Y");
-            double intY = Convert.ToDouble(Console.ReadLine());
+            var intY = Console.ReadLine();
             Console.WriteLine($"Значение переменной X: {intX}\nЗначение переменной Y: {intY}");
             // Решение с использованием третьей переменной
-            double intZ = intX;
+            var intZ = intX;
             intX = intY;
             intY = intZ;
             Console.WriteLine($"С помощью магии, кода и третьей переменной получаем новые значения переменных\nЗначение переменной X: {intX}\nЗначение переменной Y: {intY}");
-            // Решение без использования третьей переменной
-            intX = intX + intY;
-            intY = intX - intY;
-            intX = intX - intY;
+
+            // Решение без использования третьей переменной, используя метод
+            SwapVar(ref intX, ref intY);
             Console.WriteLine($"Тут происходит обратный обмен значениями уже без использования третьей переменной\nЗначение переменной X: {intX}\nЗначение переменной Y: {intY}");
 
             Pause();
