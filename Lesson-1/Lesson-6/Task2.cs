@@ -18,12 +18,16 @@ namespace Lesson_6
 
     partial class Program
     {
-        public static double F(double x)
+        public static double F1(double x)
         {
             return x * x - 50 * x + 10;
         }
+        public static double F2(double x)
+        {
+            return x * x - 10 * x + 50;
+        }
 
-        public static void SaveFunc(string fileName, double a, double b, double h)
+        public static void SaveFunc(string fileName, double a, double b, double h, Function F)
         {
             /*Stream stream = new FileStream("sd.txt", FileMode.Create);
             BinaryReader stream2 = new BinaryReader(stream);*/
@@ -61,7 +65,10 @@ namespace Lesson_6
         static void Task2()
         {
             Console.Clear();
-            SaveFunc("data.bin", -100, 100, 0.5);
+            Function[] F = { F1, F2 };
+            Console.WriteLine("Выберете функцию 1 или 2");
+            int i = int.Parse(Console.ReadLine());
+            SaveFunc("data.bin", -100, 100, 0.5, F[i-1]);
             Console.WriteLine(LoadMin("data.bin"));
             Console.ReadKey();
         }
