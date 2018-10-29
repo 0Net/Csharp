@@ -48,7 +48,7 @@ namespace Lesson7
             waypoints.Clear();
             current = 1;
             waypoints.Push(current);
-            usermoves++;
+            usermoves = 0; ;
         }
 
         public void Back()
